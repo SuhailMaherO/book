@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Update Book</h2>
+    <form th:action="@{/books/edit/{id}(id=${book.id})}" th:object="${book}" method="post">
+        <div class="form-group">
+            <label >Title:</label>
+            <input type="text" class="form-control" th:field="*{title}" required />
+        </div>
+        <div class="form-group">
+            <label >Author:</label>
+            <input type="text" class="form-control" th:field="*{author}" required />
+        </div>
+        <div class="form-group">
+            <label >Price:</label>
+            <input type="number" class="form-control" th:field="*{price}" step="0.01" required />
+        </div>
+        <button type="submit" class="btn btn-success">Update Book</button>
+        <a href="/books" class="btn btn-secondary">Back to Book List</a>
+    </form>
+</div>
+</body>
+</html>
